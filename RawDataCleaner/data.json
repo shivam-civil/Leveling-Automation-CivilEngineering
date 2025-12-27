@@ -1,0 +1,52 @@
+[
+    {
+        "station": "BM",
+        "type": "BS",
+        "value": 1.0
+    },
+    {
+        "station": "P2",
+        "type": "IS",
+        "value": 2.0
+    },
+    {
+        "station": "CP1",
+        "type": "FS",
+        "value": 3.0
+    },
+    {
+        "station": "CP1",
+        "type": "BS",
+        "value": 4.0
+    },
+    {
+        "station": "P4",
+        "type": "IS",
+        "value": 5.0
+    },
+    {
+        "station": "P5",
+        "type": "IS",
+        "value": 6.0
+    },
+    {
+        "station": "CP2",
+        "type": "FS",
+        "value": 7.0
+    },
+    {
+        "station": "CP2",
+        "type": "BS",
+        "value": 8.0
+    },
+    {
+        "station": "P7",
+        "type": "IS",
+        "value": 9.0
+    },
+    {
+        "station": "P8",
+        "type": "FS",
+        "value": 10.0
+    }
+]
