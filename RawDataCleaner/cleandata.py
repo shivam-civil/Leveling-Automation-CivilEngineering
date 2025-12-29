@@ -1,4 +1,4 @@
-import json
+
 def clean_data(rawdata,cg):
     """
     Rawdata and cg only acceptable in list type
@@ -45,11 +45,12 @@ def clean_data(rawdata,cg):
         readings.append(row)    
     return readings  
 """
-rawdata=[1,2,3,4,5,6,7,8,9,10]
-cg=[3,7]
+rawdata=[0.680,1.455,1.855,2.330,2.885,3.380,1.055,1.860,2.265,3.540,0.835,0.945,1.530,2.250]
+cg=[6,10]                                         # changed after 6th and 10th readings 
 readings=clean_data(rawdata,cg)
 with open("data.json","w") as f:
     json.dump(readings,f,indent=4)
-"""    
+    """
+ 
    
 
