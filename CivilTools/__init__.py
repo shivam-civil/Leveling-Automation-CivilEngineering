@@ -2,4 +2,4 @@
 
 from .hi_method import HiMethod
 from .risefall_method import RiseFallMethod
-from .cleandata import CleanDataMethod
+from .cleandata import CleanData
