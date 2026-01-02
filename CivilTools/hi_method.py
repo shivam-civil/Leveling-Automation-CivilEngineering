@@ -13,7 +13,7 @@ def HiMethod(readings,bm_rl):           # READINGS AS LIST AND BM_RL IS BENCHMAR
         rvalue=r["value"]
 
         row={                                           # ROW FOR TABLE FORMAT 
-            "station":rstation,
+            "STATION":rstation,
             "BS":"",
             "IS":"",
             "FS":"",
