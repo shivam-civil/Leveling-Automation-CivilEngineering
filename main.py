@@ -16,7 +16,7 @@ st.set_page_config(
 
 #  ------ HEADER --------
 st.title("Leveling Automation ")
-st.write("HI & RiseFall Method")
+st.write("HI and RiseFall Method")
 
 st.divider()
 
