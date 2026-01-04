@@ -49,8 +49,9 @@ def HiMethod(readings,bm_rl):           # READINGS AS LIST AND BM_RL IS BENCHMAR
             row["FS"]=rvalue
             row["RL"]=current_rl
             row["Remarks"]="LastFS"
-            
+        if i+1 ==len(readings):
+            last_rl=current_rl    
         i += 1                                        # CONTINUES THE LOOP
         results.append(row)                           # APPEND EVERY CALCULATED ROW 
-    return pd.DataFrame(results)                      # RETURNS THE RESULTS IN PANDAS DATAFRAME 
+    return pd.DataFrame(results),last_rl                      # RETURNS THE RESULTS IN PANDAS DATAFRAME 
 

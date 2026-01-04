@@ -66,14 +66,18 @@ if st.button("Calculate"):
         else :
             cp_list=[0]
 
-        # CLEAN RAW DATA 
-        readings=CleanData(raw_readings_list,cp_list)
+        # CLEAN RAW DATA AND CALCULATE TOTAL BS,FS, AND FIRST,LAST RL 
+        readings= CleanData(raw_readings_list,cp_list)
+        total_bs= sum(r["value"] for r in readings if r["type"]=="BS")
+        total_fs= sum(r["value"] for r in readings if r["type"]=="FS") 
+        first_rl=bm_rl
+        
 
         # RUN SELECTED METHOD
         if method.startswith("HI"):
-            df=HiMethod(readings,bm_rl)
+            df,last_rl=HiMethod(readings,bm_rl)
         elif method.startswith("RISE"):
-            df=RiseFallMethod(readings,bm_rl)
+            df,last_rl=RiseFallMethod(readings,bm_rl)
 
         st.success("Calculation done...")
 
@@ -81,9 +85,19 @@ if st.button("Calculate"):
 
         st.subheader("Result Table")
         st.dataframe(df,use_container_width=True)
+        st.divider()
+        # ----- ARITHMETIC CHECK ---- 
+        st.subheader("ARITHMETIC CHECK")
+        st.write(f"Total BS - Total FS = {round(abs(total_bs - total_fs),3)}")
+        st.write(f"Last RL - First RL  = {round(abs(last_rl - first_rl),3)}")
+        if round(abs(total_bs - total_fs),3) == round(abs(last_rl - first_rl),3) :
+            st.success("Arithmetic Check Passed ✅")
+        else :
+            st.warning("Arithmetic Check Failed 👎")    
+
         
         st.divider()
-
+        
         # ----- DOWNLOADS ----------
 
         csv_data=df.to_csv(index=False).encode("utf-8")

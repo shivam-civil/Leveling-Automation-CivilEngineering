@@ -86,9 +86,11 @@ def RiseFallMethod(readings,bm_rl):
 
         row["RL"]=round(current_rl,3)
         prev_reading=rvalue
+        if i+1==len(readings):
+            last_rl=current_rl
         i += 1
         results.append(row)
-    return pd.DataFrame(results)             # RETURN AD DATAFRAME FOR FURTHER TASKS  
+    return pd.DataFrame(results),last_rl            # RETURN AD DATAFRAME FOR FURTHER TASKS  
 
 
 
