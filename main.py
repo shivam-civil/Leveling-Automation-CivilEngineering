@@ -93,7 +93,8 @@ if st.button("Calculate"):
         if round(abs(total_bs - total_fs),3) == round(abs(last_rl - first_rl),3) :
             st.success("Arithmetic Check Passed ✅")
         else :
-            st.warning("Arithmetic Check Failed 👎")    
+            st.warning("Arithmetic Check Failed 👎") 
+            st.warning("You messed up. Check Your Change Points and Readings.")
 
         
         st.divider()
