@@ -47,7 +47,7 @@ def HiMethod(readings,bm_rl):           # READINGS AS LIST AND BM_RL IS BENCHMAR
         elif rtype=="FS" :                                       # FOR LAST FS   
             current_rl = current_hi - rvalue 
             row["FS"]=rvalue
-            row["RL"]=current_rl
+            row["RL"]=round(current_rl,3)
             row["Remarks"]="LastFS"
         if i+1 ==len(readings):
             last_rl=current_rl    
