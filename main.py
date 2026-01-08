@@ -11,7 +11,8 @@ from CivilTools.hi_method import HiMethod
 from CivilTools.risefall_method import RiseFallMethod
 
 st.set_page_config(
-    page_title="Leveling Automation"
+    page_title="Leveling Automation",
+    page_icon="profile.png"
 )
 
 #  ------ HEADER --------
