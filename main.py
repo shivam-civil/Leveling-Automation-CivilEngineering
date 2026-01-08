@@ -95,7 +95,7 @@ if st.button("Calculate"):
             st.success("Arithmetic Check Passed ✅")
         else :
             st.warning("Arithmetic Check Failed 👎") 
-            st.warning("You messed up. Check Your Change Points and Readings.")
+            st.warning("You messed up. Check your change points.")
 
         
         st.divider()
