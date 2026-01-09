@@ -96,10 +96,7 @@ if st.button("Calculate"):
         else :
             st.warning("Arithmetic Check Failed 👎") 
             st.warning("You messed up. Check your change points.")
-            st.success("Possible **Solution*
-                       \n1. Remove consecutive Change Points
-                       \n2. Dont keep last reading as ChangePoint
-                       ")
+            st.success("**Possible Solution** \n1. Remove Consecutive Change Points If there any.\n2. Dont keep the last reading as Change Point. ")
             
 
         
