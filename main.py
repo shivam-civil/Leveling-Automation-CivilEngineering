@@ -14,51 +14,52 @@ st.set_page_config(
     page_title="Leveling Automation",
     page_icon="profile.png"
 )
+with st.form(key='myform'): 
+    #  ------ HEADER --------
+    st.title("Leveling Automation ")
+    st.write("HI & RiseFall Method")
 
-#  ------ HEADER --------
-st.title("Leveling Automation ")
-st.write("HI & RiseFall Method")
+    st.divider()
 
-st.divider()
+    # ------ INPUT SECTION -------
 
-# ------ INPUT SECTION -------
+    column1,column2 = st.columns(2)
 
-column1,column2 = st.columns(2)
-
-with column1 : 
-    method = st.radio(
+    with column1 : 
+        method = st.radio(
         "Select Method",
         ["HI METHOD","RISE FALL METHOD"]
-    )
+        )
 
-with column2 :
-    bm_rl=st.number_input("BenchMark RL ",
-    value=100.000,
-    step=0.001,
-    format="%.3f"
-    )
+    with column2 :
+        bm_rl=st.number_input("BenchMark RL ",
+        value=100.000,
+        step=0.001,
+        format="%.3f"
+        )
 
-st.divider()
+    st.divider()
 
-# ----- RAW READINGS INPUT ------
+    # ----- RAW READINGS INPUT ------
 
-raw_readings_str=st.text_input(
+    raw_readings_str=st.text_input(
     "Enter Staff Readings (Comma Seperated) ",
     placeholder=" 1.03 , 1.3 , 2.3 , 4.6,  ...."
-) 
+    ) 
 
-# ---- CHANGE POINTS INPUT ------
+    # ---- CHANGE POINTS INPUT ------
 
-cp_str=st.text_input(
+    cp_str=st.text_input(
     "Enter Change Point Indices (0 if no) ",
     placeholder=" 3 , 6 , 10 , ..."
-)
+    )
 
-st.divider()
+    st.divider()
 
-if st.button("Calculate"):
+    submitted=st.form_submit_button("Calculate")
+if submitted==True:     
     try :
-        # PARSE RAW READINGS 
+    # PARSE RAW READINGS 
         raw_readings_list=[round(float(x.strip()),3) for x in raw_readings_str.split(",")]
 
         # PARSE CHANGE POINTS 
@@ -72,7 +73,7 @@ if st.button("Calculate"):
         total_bs= sum(r["value"] for r in readings if r["type"]=="BS")
         total_fs= sum(r["value"] for r in readings if r["type"]=="FS") 
         first_rl=bm_rl
-        
+
 
         # RUN SELECTED METHOD
         if method.startswith("HI"):
@@ -85,7 +86,7 @@ if st.button("Calculate"):
         st.divider()
 
         st.subheader("Result Table")
-        st.dataframe(df,use_container_width=True)
+        st.dataframe(df,width='stretch')
         st.divider()
         # ----- ARITHMETIC CHECK ---- 
         st.subheader("ARITHMETIC CHECK")
@@ -99,9 +100,9 @@ if st.button("Calculate"):
             st.success("**Possible Solution** \n1. Remove Consecutive Change Points If there any.\n2. Dont keep the last reading as Change Point. ")
             
 
-        
+
         st.divider()
-        
+
         # ----- DOWNLOADS ----------
 
         csv_data=df.to_csv(index=False).encode("utf-8")
