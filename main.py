@@ -86,7 +86,7 @@ if submitted==True:
         st.divider()
 
         st.subheader("Result Table")
-        st.dataframe(df,width='stretch')
+        st.dataframe(df,width='content')
         st.divider()
         # ----- ARITHMETIC CHECK ---- 
         st.subheader("ARITHMETIC CHECK")
